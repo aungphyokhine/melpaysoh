@@ -1,0 +1,86 @@
+﻿<?php
+
+
+
+    header('Access-Control-Allow-Origin: *');
+
+    header('Access-Control-Allow-Methods: GET, POST');
+
+    header("Access-Control-Allow-Headers: X-Requested-With");
+
+
+
+   $user      = $_GET["user"];
+    $type   = $_GET["type"];
+    $rank   = $_GET["rank"];
+
+   error_reporting(0);
+   $dbhost = 'localhost';
+   $dbuser = 'u349289611_sa';
+   $dbpass = 'SHG7XW84x0';
+   $conn = mysql_connect($dbhost, $dbuser, $dbpass);
+
+   if(! $conn )
+   {
+
+$arr = array ('success'=>0,'msg'=>mysql_error());
+echo json_encode($arr);
+   }
+
+   $sql = "INSERT INTO favourite (user,rank,type) VALUES ('".$user."','".$rank ."','".$type."')";
+
+   mysql_select_db('u349289611_mps');
+   $retval = mysql_query( $sql, $conn );
+
+   if(! $retval )
+   {
+
+$arr = array ('success'=>0,'msg'=>mysql_error());
+echo json_encode($arr);
+
+   }
+   else{
+$arr = array ('success'=>1,'msg'=>'success');
+echo json_encode($arr);
+
+}
+
+
+   mysql_close($conn);
+?>
+
+
+<?php
+
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
+
+$user   = $_GET["user"];
+$type   = $_GET["type"];
+$rank   = $_GET["rank"];
+
+
+$servername = "localhost";
+$username = "u349289611_sa";
+$password = "SHG7XW84x0";
+$dbname = "u349289611_mps";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$sql = "DELETE FROM favourite WHERE user = " . $user . ";";
+$sql .= "INSERT INTO favourite (user,rank,type) VALUES ('".$user."','".$rank ."','".$type."')";
+if ($conn->query($sql) === TRUE) {
+$arr = array ('success'=>1,'msg'=>'success');
+echo json_encode($arr);
+} else {
+$arr = array ('success'=>0,'msg'=>$conn->error);
+echo json_encode($arr);
+}
+
+$conn->close();
+?> 

@@ -1,0 +1,39 @@
+﻿
+<div flex="100" layout="row" layout-padding="20px" layout-align="start start">
+    <div class="fb-like" onrender="widget.rendered = true" data-href="{{ pageHref }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+</div>
+    <md-content flex layout="column" layout-align="start center" layout-padding style="overflow-x:hidden;">
+
+    
+    <div  layout="column" layout-align="center center" class="index-head  text-center">
+        <p style="margin-top:70px;">
+            <!--<img ng-src="assets/svg/mps-logo.png" class="party-flag-detail" alt="" />
+            <br />-->
+
+            <span class="home-logo1">2015</span>
+            <!--<sm><timer end-time="1446917400000">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer></sm>-->
+            <span class="home-logo2">NOVEMBER 8</span>
+            <!--<span class="mmfont md-display-1">ရွေးကောက်ပွဲ <br />နိုဝင်ဘာ ၈ရက် ၂၀၁၅</span><br />-->
+            <span class="mmfont countdown">မဲပေးရန် {{time}}<br />သာကျန်ရှိပါတော့သည်...</span>
+           
+
+
+
+
+
+
+        </p>
+
+    </div>
+    <div  layout-align="center center">
+        <md-button class="indexnext" ng-click="toparty()" ng-click="onSwipeLeft()" class="md-icon-button" aria-label="Favorite">
+
+            <md-icon md-svg-icon="svg/ic_keyboard_arrow_right_black_24px.svg"></md-icon>
+        </md-button>
+
+
+    </div>
+
+
+
+</md-content>

@@ -1,0 +1,65 @@
+﻿
+<div class="candidate" layout="column" ng-cloak md-swipe-left="onSwipeLeft()" md-swipe-right="onSwipeRight()">
+    <div class="loading" data-loading>
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <md-content class="md-padding mmfont">
+
+        <div flex layout="row" layout-align="space-between start">
+
+
+            <md-select flex class=" centerplaceholder" ng-change="changedivision()" placeholder="နယ်မြေအလိုက်ရှာဖွေရန်" ng-model="currentdiv" md-on-open="loadDivisions()">
+                <md-option ng-value="item" ng-repeat="item in divisions">{{item.properties.DT}}</md-option>
+            </md-select>
+
+        </div>
+
+
+
+        <md-list ng-if="candidates!=null">
+            <div layout="row" layout-padding layout-align="space-between center">
+                <md-subheader class="md-no-sticky mmfont">{{candidates.length>0?candidates.length + ' person in' : 'there is no person on' }} {{currentdiv.properties.DT}}</md-subheader>
+                <div ng-click="onSwipeLeft()" ng-show="shownext" class="md-no-sticky mmfont">
+                    ထပ်မံရှိသေးသည်..
+                </div>
+            </div>
+
+            <md-list-item ng-click="showdetail(item)" class="md-3-line mmfont" ng-repeat="item in candidates">
+
+
+                <img ng-src="{{item.photo_url}}?{{$index}}" class="candidate-photo" alt="{{item.name}}" />
+                <div class="md-list-item-text">
+                    <h3>{{ item.name }}</h3>
+                    <!--<h4>{{ item.balance }}</h4>-->
+                    <p>{{item.legislature}}, {{item.constituency.name}}</p>
+                    <!--<p><span>Gender : </span>  {{ item.gender }}, <span>Religion : </span>  {{ item.nationality_religion}}, <span>DOB : </span> {{item.birthdate}}</p>-->
+
+                </div>
+                <!--<md-checkbox class="md-secondary"></md-checkbox>-->
+                <md-button ng-click="gohome()" class="md-icon-button listnext" aria-label="Favorite">
+                    <md-icon md-svg-icon="svg/ic_keyboard_arrow_right_black_24px.svg"></md-icon>
+                </md-button>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+
+
+            <md-divider ng-show="candidates.length>0"></md-divider>
+
+
+        </md-list>
+        <div md-divider ng-show="candidates.length>0" flex layout="row" layout-align="space-between center">
+            <md-button ng-show="showprev" ng-click="onSwipeRight()" class="md-icon-button" aria-label="Favorite">
+
+                <md-icon md-svg-icon="svg/ic_keyboard_arrow_left_black_24px.svg"></md-icon>
+            </md-button>
+
+            <div flex></div>
+            <md-button ng-show="shownext" ng-click="onSwipeLeft()" class="md-icon-button" aria-label="Favorite">
+
+                <md-icon md-svg-icon="svg/ic_keyboard_arrow_right_black_24px.svg"></md-icon>
+            </md-button>
+        </div>
+
+    </md-content>
+    <!--<span>total : </span>{{meta.pagination.total}} , <span>currentpage : </span>{{meta.pagination.current_page}} , <span>perpage : </span>{{meta.pagination.per_page}}
+    <span>totalpage : </span>{{meta.pagination.total_pages}} ,-->

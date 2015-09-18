@@ -1,0 +1,77 @@
+﻿<div class="loading" data-loading>
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<div ng-if="item != null" layout="column" style="padding: 10px;" class="mmfont candidatedetail">
+
+    <md-content class="detailpanel" layout-padding>
+
+        <div layout-padding class="candidatetext">
+            <div flex layout="row" layout-align="space-between center">
+                <div layout="row" layout="start center">
+                    <img style="margin-right:20px;" ng-src="{{item.photo_url}}" class="candidate-photo-detail" alt="{{item.party_name}}" />
+                    <!--<img style="margin-right:20px;" ng-src="{{item.photo_url}}" class="candidate-photo-detail" alt="{{item.party_name}}" />-->
+                    <h3>{{item.name}}</h3>
+
+                </div>
+
+                <div>
+
+
+                </div>
+            </div>
+          
+            <md-divider></md-divider>
+
+            <br />
+            <!--<md-divider></md-divider>-->
+            <!--<h2>{{item.party_name}} {{item.party_name_english}}  {{item.abbreviation}}</h2>-->
+            <span>{{item.legislature}}</span>
+            <br />
+
+            <span>မဲဆန္ဒနယ် : {{item.constituency.name}} {{item.constituency.parent}} </span><br />
+            <br />
+
+            <span>ကိုယ်ရေးအကျဉ်း</span>
+
+            <span>မွေးနေ့ရက်စွဲ : {{item.birthdate}}</span><br />
+            <span>
+                ပညာအရည်အချင်း : {{item.education}}
+            </span><br />
+            <span>အလုပ်အကိုင် : {{item.occupation}}</span><br />
+            <span>လူမျိုး : {{item.ethnicity}}</span><br />
+            <span>ဘာသာ : {{item.religion}}</span><br />
+            <span>ရပ်ကွက် : {{item.ward_village}}</span><br /><br />
+
+
+            <span>ဖခင်</span>
+
+
+            <span>အမည် : {{item.father.name}}</span><br />
+            <span>ဘာသာ : {{item.father.religion}}</span><br />
+
+            <span>မိခင်</span>
+
+            <span>အမည် : {{item.mother.name}}</span><br />
+            <span>ဘာသာ : {{item.mother.religion}}</span><br />
+
+
+
+
+            <!--<md-button ng-href="{{item.policy}}" target="_blank">ပါတီမူဝါဒများ</md-button>-->
+
+
+            <br />
+
+        </div>
+        <br />
+        <md-divider></md-divider>
+
+        <br />
+
+        <div ng-click="payrate()" layout="row" layout-align="center center">
+            <rating style="pointer-events: none;" count="usercount" score="rate" max="5" />
+
+        </div>
+
+    </md-content>
+</div>

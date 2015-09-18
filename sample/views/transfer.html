@@ -1,0 +1,88 @@
+﻿
+<div layout="row">
+    <md-card flex="100" flex-gt-md="80">
+        <md-card-content>
+
+            <div ng-controller="DemoCtrl as ctrl">
+
+                <md-toolbar class="md-dark">
+                    <div class="md-toolbar-tools">
+                        <h2 class="md-title" translate>{{'TRANSFER_SERVICE' }}</h2>
+                    </div>
+                </md-toolbar>
+
+                <md-content layout-padding layout="column">
+
+                    <p> This sidenav is locked open on your device.This sidenav is locked open on your device.This sidenav is locked open on your device.This sidenav is locked open on your device.</p>
+
+                    <md-autocomplete ng-disabled="ctrl.isDisabled"
+                                     md-no-cache="ctrl.noCache"
+                                     md-selected-item="ctrl.selectedItem"
+                                     md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                                     md-search-text="ctrl.searchText"
+                                     md-selected-item-change="ctrl.selectedItemChange(item)"
+                                     md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                     md-item-text="item.no"
+                                     md-min-length="0"
+                                     placeholder="{{ 'TRANSFER_TOACCCOUNT'|translate }}"
+                                     md-menu-class="autocomplete-custom-template">
+                        <md-item-template>
+                            <span class="item-title">
+                                <span>{{item.no}}</span>
+                                <br />
+                                {{item.user}} {{item.nrc}}
+                            </span>
+
+                        </md-item-template>
+                    </md-autocomplete>
+
+                </md-content>
+
+            </div>
+
+            <!--<md-button md-no-ink class="md-primary" translate="">{{'TRANSFER_ADDBENEFIT'}}</md-button>-->
+
+            <br /><br />
+
+            <md-content layout-padding>
+                <form name="projectForm">
+                    <div layout="column">
+                        <md-input-container flex="100" flex-gt-md="50">
+                            <label translate>{{ 'TRANSFER_TRANSFERBALANCE' }}</label>
+                            <input required type="number" step="any" name="rate" ng-model="project.rate" min="0" max="{{data.maxamount}}">
+                            <div ng-messages="projectForm.rate.$error">
+                                <div ng-message="required">required data.</div>
+                                <div ng-message="min">You should charge at least $800 an hour. This job is a big deal... if you mess up, everyone dies!</div>
+                                <div ng-message="max">$5,000 an hour? That's a little ridiculous. I doubt event Bill Clinton could afford that.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex="100" flex-gt-md="50">
+                            <label translate>{{ 'TRANSFER_REFERENCE' }}</label>
+                            <input md-maxlength="30" name="description" ng-model="project.description">
+                        </md-input-container>
+                    </div>
+                   
+
+                </form>
+            </md-content>
+            <div class="md-actions" layout="row">
+                <!--<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+                    More on Wikipedia
+                </md-button>-->
+                <span flex></span>
+                <md-button translate="TRANSFER_CONTINUE" ng-click="showAdvanced($event)">{{}}</md-button>
+                <md-button translate="CANCEL">{{}}</md-button>
+            </div>
+
+        </md-card-content>
+
+
+
+        <!--<div class="md-actions" layout="row" layout-align="end center">
+            <md-button translate="TRANSFER_CONTINUE">{{}}</md-button>
+            <md-button translate="CANCEL">{{}}</md-button>
+        </div>-->
+    </md-card>
+<div flex></div>
+</div>
+

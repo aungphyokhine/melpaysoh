@@ -1,0 +1,62 @@
+﻿
+<div ng-if="item != null" layout="column" class="mmfont partydetail" data-template>
+ 
+    <md-content data-template class="detailpanel" layout-padding>
+
+        <div layout="row" style="margin-top:10px;" layout-align="space-between center">
+            <img ng-src="{{item.party_flag}}" class="party-flag-detail" alt="{{item.party_name}}" />
+
+            <div layout="row" layout-align="end start">
+                <md-button style="margin-bottom:0px;margin-top:10px;" ng-href="{{item.policy}}" class="md-icon-button" aria-label="More">
+                    <md-tooltip>
+                        ပါတီမူဝါဒများ
+                    </md-tooltip>
+                    <md-icon md-svg-icon="svg/ic_insert_comment_black_24px.svg"></md-icon>
+                </md-button>
+                <md-button ng-click="getcandidate()" class="md-icon-button" aria-label="Favorite">
+
+                    <md-icon md-svg-icon="svg/ic_group_black_24px.svg"></md-icon>
+                </md-button>
+            </div>
+        </div>
+      
+        <br />
+        <md-divider></md-divider>
+        <br />
+        <br />
+        <span>{{item.party_name}} {{item.party_name_english}}  {{item.abbreviation}}</span>
+        <br />
+
+        ခေါင်းဆောင်များ : <span>{{item.leadership.join()}}</span>, Chairmen : <span>{{item.chairman.join()}}</span>
+
+        <br />
+
+
+        <p>
+            <span>
+                အသင်းဝင်ဦးရေ : {{item.member_count}}
+            </span><br />
+            <span>ယှဉ်ပြိုင်မည့်နေရာ : {{item.region}}</span><br /><span>{{item.headquarters}}</span><br />
+            <span>{{item.contact.join()}}</span><br />
+            <span{{item.member_count}}
+                </span>
+
+                <!--<md-button ng-href="{{item.policy}}" target="_blank">ပါတီမူဝါဒများ</md-button>-->
+        </p>
+        <br />
+        <br />
+        <md-divider ></md-divider>
+
+        <br />
+        <br />
+
+
+        <div ng-click="payrate()" layout="row" layout-align="center center">
+            <rating style="pointer-events: none;" count="usercount" score="rate" max="5" />
+
+        </div>
+
+    </md-content>
+
+    
+</div>

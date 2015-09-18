@@ -1,0 +1,28 @@
+﻿
+    <div layout="column" style="text-align: center; " class="mmfont" flex layout-align="start center">
+        <h3>အမှတ်ပေးနိုင်ပါသည်။</h3>
+
+        <div flex="100" style="width:90%;height:70px;" layout="column" layout-align="center center">
+            <!--<img  ng-src="{{share.picture}}" class="share-photo" alt="{{item.party_name}}" />-->
+            <div flex class="share-desc" >နှစ်သက်မှုပမာဏ အလိုက် ကြယ်ပွင့်များကို ရွေးချယ်ပေးရန်ဖြစ်ပါသည်။</div>
+        </div>
+
+
+        <div ng-click="payrate()" layout="row" layout-align="center center">
+            <rating score="rate" max="5" />
+
+        </div><br /><br />
+        <div ng-show="connectfb">connecting with facebook...</div>
+
+        <div layout="row" layout-align="center end" style="margin-top:20px;">
+            <!--{{loginStatus}}
+            {{apiMe}}-->
+            <md-button ng-if="rate > 0" ng-click="getUserInfo()" style="margin-right:20px;">
+                ပေးပို့ပါမည်
+            </md-button>
+            <!--<md-button ng-click="logout()" style="margin-right:20px;">
+                logout
+            </md-button>-->
+        </div>
+   
+

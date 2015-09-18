@@ -1,0 +1,19 @@
+﻿<div ng-click="payrate()" layout="column" layout-align="start center">
+    <sealform  data="item" />
+
+</div>
+<div md-divider  flex layout="row" layout-align="space-between center">
+    <md-button ng-click="prev()" class="md-icon-button" aria-label="Favorite">
+
+        <md-icon md-svg-icon="svg/ic_keyboard_arrow_left_black_24px.svg"></md-icon>
+    </md-button>
+
+    <div flex></div>
+    <md-button ng-click="next()" class="md-icon-button" aria-label="Favorite">
+
+        <md-icon md-svg-icon="svg/ic_keyboard_arrow_right_black_24px.svg"></md-icon>
+    </md-button>
+</div>
+<input type="number" ng-model="item.d[0].x" />
+<input type="number" ng-model="item.d[0].y" />
+<input type="number" ng-model="item.d[0].deg" />
